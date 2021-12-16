@@ -1,0 +1,66 @@
+password_reset_temp table
+
+CREATE TABLE `password_reset_temp` (
+ `email` varchar(250) NOT NULL,
+ `key` varchar(250) NOT NULL,
+ `expDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+patientinfo table
+
+CREATE TABLE `patientinfo` (
+ `ID` int(11) NOT NULL AUTO_INCREMENT,
+ `Email_Id` varchar(250) CHARACTER SET utf8mb4 DEFAULT '',
+ `FirstName` varchar(250) CHARACTER SET utf8mb4 DEFAULT '',
+ `LastName` varchar(250) CHARACTER SET utf8mb4 DEFAULT '',
+ `PatientId` varchar(250) CHARACTER SET utf8mb4 DEFAULT '',
+ `City` varchar(250) CHARACTER SET utf8mb4 DEFAULT '',
+ `Pincode` varchar(10) CHARACTER SET utf8mb4 DEFAULT '',
+ `Contact_Number` varchar(15) CHARACTER SET utf8mb4 DEFAULT '',
+ `Aadhaar` varchar(100) CHARACTER SET utf8mb4 DEFAULT '',
+ `Age` varchar(100) CHARACTER SET utf8mb4 DEFAULT '',
+ `IsActive` char(1) CHARACTER SET utf8mb4 DEFAULT '',
+ `Address` text CHARACTER SET utf8mb4,
+ `Country` varchar(250) CHARACTER SET utf8mb4 DEFAULT NULL,
+ `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `Comorbidities` text,
+ `PID` int(11) DEFAULT NULL,
+ `Sex` varchar(11) DEFAULT NULL,
+ PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
+
+
+patientreports  table
+
+CREATE TABLE `patientreports` (
+ `ID` int(11) NOT NULL AUTO_INCREMENT,
+ `PatientId` int(11) DEFAULT NULL,
+ `ReportType` varchar(250) DEFAULT NULL,
+ `ReportName` varchar(250) DEFAULT NULL,
+ `UploadPath` varchar(250) DEFAULT NULL,
+ PRIMARY KEY (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8
+
+
+user_register  table
+
+CREATE TABLE `user_register` (
+ `ID` int(10) NOT NULL AUTO_INCREMENT,
+ `Email_Id` varchar(250) DEFAULT '',
+ `FirstName` varchar(250) DEFAULT '',
+ `LastName` varchar(250) DEFAULT '',
+ `InstitueName` varchar(250) DEFAULT '',
+ `City` varchar(250) DEFAULT '',
+ `Pincode` varchar(10) DEFAULT '',
+ `Contact_Number` varchar(15) DEFAULT '',
+ `Password` varchar(100) DEFAULT '',
+ `ConfirmPassword` varchar(100) DEFAULT '',
+ `IsActive` char(1) DEFAULT '',
+ `Address` text,
+ `Country` varchar(250) DEFAULT NULL,
+ PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4
+
+
+INSERT INTO `user_register` (`ID`, `Email_Id`, `FirstName`, `LastName`, `InstitueName`, `City`, `Pincode`, `Contact_Number`, `Password`, `ConfirmPassword`, `IsActive`, `Address`, `Country`) VALUES
+(1, 'admin@gmail.com', 'admin', '', 'test', 'MDU', '123456', '1234567890', 'admin', '', 'Y', 'test@1234', 'India')
